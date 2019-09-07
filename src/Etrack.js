@@ -1,18 +1,3 @@
-// Your web app's Firebase configuration
-(function () {
-    var firebaseConfig = {
-        apiKey: "AIzaSyAi9EgZrLAYpRA0r-2jA3s2WrbxhUeZpP8",
-        authDomain: "expense-tracker-218fc.firebaseapp.com",
-        databaseURL: "https://expense-tracker-218fc.firebaseio.com",
-        projectId: "expense-tracker-218fc",
-        storageBucket: "expense-tracker-218fc.appspot.com",
-        messagingSenderId: "801878105448",
-        appId: "1:801878105448:web:9ff3ea9008888040"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-})();
-
 function logout() {
     firebase.auth().signOut().then(function () {
         showMessage({ 'message': 'Logout Success' }, 'success');
