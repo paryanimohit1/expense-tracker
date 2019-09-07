@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Expense Tracker</title>
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase.js"></script>
+<script src="./src/Etrack.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="./resources/Etrack.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+    integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
+<body>
+    <div class="appHeader">
+        <h2 class="appHeaderText">Expense Tracker</h2>
+        <a class="logoutButton" id="logoutButton" onclick="logout()">Logout</a>
+    </div>
+    <p class="messageBox" id="cntErrorMessage"></p>
+
+    <div class="loginForm" id="loginForm">
+        <img src="./resources/images/userAccount.png" class="loginFormImage">
+        <input class="loginFormFields" type="text" id="inputUserName" placeholder="Email">
+        <input class="loginFormFields" type="password" id="inputPassword" placeholder="Password">
+
+        <button id="loginButton" onclick="login()" class="loginFormButtons">Login</button>
+        <span id="loginFormHelpText" class="formHelpText">New user? <b onclick="helpTextClicked(event)">Sign Up</b>
+        </span>
+    </div>
+    <div class="loginForm signUpForm" id="signUpForm">
+        <img src="./resources/images/userAccount.png" class="loginFormImage">
+        <input class="loginFormFields" type="text" id="inputSignUpEmail" placeholder="Email">
+        <input class="loginFormFields" type="password" id="inputSignUpPassword" placeholder="Password">
+        <input class="loginFormFields" type="text" id="inputSignUpUsername" placeholder="Username">
+        <input class="loginFormFields" type="number" id="inputSignUpAccountBalance" placeholder="Account Balance">
+
+        <button id="signUpButton" onclick="signUp()" class="loginFormButtons">Sign Up</button>
+        <span id="signUpFormHelpText" class="formHelpText">Already an user? <b
+                onclick="helpTextClicked(event)">Login</b>
+        </span>
+    </div>
+    <div id="userContent" class="userContent">
+        <div>
+            <label for='accBalance' class="clsAccountBalance">Bal: ₹</label>
+            <p id="accBalance" class="clsAccountBalance"></p>
+        </div>
+        <div class="clsInputFields">
+            <label for="txnAmount">Amount: 
+                <input type="number" class="txnFormFields" id="txnAmount">
+            </label>
+        </div>
+        <div class="clsInputFields">
+            <label for='txnDescription'>Description: 
+                <input type="text" class="txnFormFields" id="txnDescription">
+            </label>
+        </div>
+        <div class="clsInputFields">
+            <label for='cmbTxnType'>Type: 
+                <select id="cmbTxnType" class="txnTypeCombobox">
+                    <option selected>Credit</option>
+                    <option>Debit</option>
+                </select>
+            </label>
+        </div>
+        <button id="btnSubmit" onclick="onSubmitClick()" class="loginFormButtons submitButton">Submit</button>
+        <div>
+            <h4 id="usernameHeader" class="userNameHeader"></h4>
+            <table id='userDataTable' class="pure-table txn-table">
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Transaction Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
